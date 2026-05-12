@@ -2,9 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const serverConfig = require('./config/serverConfig');
+const Redis = require('ioredis');
+const connectRedis = require('./config/redis');
 
 const app = express();
+
 connectDB();
+connectRedis();
 
 //middlewares
 app.use(express.json());
